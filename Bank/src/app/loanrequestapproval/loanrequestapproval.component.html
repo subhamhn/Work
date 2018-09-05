@@ -1,0 +1,102 @@
+
+<main>
+  <div class="container-fluid" style="margin-top:90px;">
+    <!-- Button trigger modal-->
+
+    <div class="row">
+      <div class="col-sm-12" id="loantable">
+          <div class="scrollable" style="overflow-x:auto;overflow-y:auto;height:600px;background:white">
+          <table class="table">
+              <thead class="mdb-color darken-3">
+                  <tr  class="text-white">
+                      <td>Loan Request ID</td>
+                      <td>Loan Requestor</td>
+                      <td>Token Address</td>
+                      <td>Bank Address</td>
+                      <td>Token Count</td>
+                      <td>Year</td>
+                      <td>Approve</td>
+                      <td>Reject</td>
+                  </tr>
+              </thead>
+              <tbody >                    
+                    <tr *ngFor="let loanrequested of loan_req_details" >
+                        <td>{{ loanrequested.loan_id }}</td> 
+                        <td>{{ loanrequested.loan_requestor }}</td>
+                        <td>{{ loanrequested.token_address }}</td>
+                        <td>{{ loanrequested.bank_address }}</td> 
+                        <td>{{ loanrequested.amount_of_token }}</td>
+                        <td>{{ loanrequested.year }}</td>
+                       
+                        <td><input type="button"  class="btn btn-indigo waves-light" value="Approve loan" (click)="loanapprove(loanrequested.loan_id,loanrequested.token_address,loanrequested.loan_requestor,loanrequested.amount_of_token,loanrequested.year)"></td>
+                        <td><input type="button"  class="btn btn-indigo waves-light" value="Reject loan" (click)="loan_req_approval(loanrequested.loan_id,loanrequested.token_address,loanrequested.loan_requestor,loanrequested.amount_of_token,loanrequested.year,3)"></td>
+                    </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+  
+   <div class="col-sm-6" id="approve" style="display: none">
+      <h2 class="form-signin-heading">Approve loan</h2>
+      <div class="row">
+        <div class="col-sm-6">
+          <label class="control-label " for="fix_id"><b>Loan ID</b></label>
+          <input type="text" class="form-control" #loaniid  value={{loanid}}  readonly/> 
+        </div>
+        <div class="col-sm-6">
+          <label class="control-label" for="fix_id"><b>Token Address</b></label>
+          <input type="text" class="form-control" #tokennaddress  value={{tokenaddress}}   readonly/>   
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6"><br>
+          <label class="control-label" for="fix_id"><b>Loan Requestor</b></label>   
+          <input type="text" class="form-control" #loanrequestor  value={{requestor}}   readonly/>
+        </div>
+        <div class="col-sm-6"><br>
+          <label class="control-label" for="fix_id"><b>Amount of Token</b></label>
+          <input type="text" class="form-control" #amountoftoken  value={{tokenamt}}   readonly/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6"><br>
+          <label class="control-label" for="fix_id"><b>Years</b></label>
+          <input type="text" class="form-control" #year   value={{years}}  readonly/>
+        </div>
+        <div class="col-sm-6"><br>
+
+        </div>
+      </div><br>                                           
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" (click)="loan_req_approval(loaniid.value,tokennaddress.value,loanrequestor.value,amountoftoken.value,year.value,2)" id="check">
+            <label class="custom-control-label" for="check">Approve Loan</label>
+        </div>
+         
+          <div class="row">
+              <div class="col-sm-6"><br>
+                  <input type="button"  class="btn btn-indigo waves-light" value="Approve Token" (click)="loan_token_approve(tokennaddress.value,amountoftoken.value)">
+              </div>
+              <div class="col-sm-6"><br>
+                  <input type="button"  class="btn btn-indigo waves-light" value="Cancel" (click)="cancel()">
+              </div>
+            </div>               
+
+
+      </div>
+  
+
+
+    </div>
+  </div>
+
+  <ngx-spinner
+bdColor="rgba(51,51,51,0.8)"
+size="medium"
+color="#fff"
+loadingText="Loading..."
+type="ball-scale-multiple">
+</ngx-spinner>
+
+
+
+</main>

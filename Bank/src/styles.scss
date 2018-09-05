@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+// .navbar.navbar-dark .navbar-nav .nav-item.active > .nav-link {
+//     background-color:rgba(105, 99, 99, 0.288);
+//     ;
+//    }
+/* width */
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #3f51b5; 
+}

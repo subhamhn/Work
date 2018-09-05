@@ -1,0 +1,53 @@
+<!-- <p>
+  header works!
+</p> -->
+<mdb-navbar SideClass="navbar fixed-top navbar-expand-lg navbar-dark indigo scrolling-navbar ie-nav" [containerInside]="false">
+  <logo>
+      <p class="logo navbar-brand"><strong>Bank As Wallet</strong></p>
+  </logo>
+  <links>
+      <ul class="navbar-nav mr-auto">
+         
+          <li class="nav-item waves-light" mdbWavesEffect>
+                <a class="nav-link" routerLink="profile">Dashboard</a>
+            </li>
+          
+            <li class="nav-item waves-light" mdbWavesEffect>
+                <a class="nav-link" routerLink="banking">Bank Process</a>
+            </li>
+
+            <li class="nav-item dropdown" dropdown>
+                    <a dropdownToggle mdbWavesEffect class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+                     Loan Process<span class="caret" ></span></a>
+                    <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                        <a class="dropdown-item waves-light" routerLink="loan-request" mdbWavesEffect >Loan Request</a>
+                        <a class="dropdown-item waves-light" routerLink="loan-req-aproval" mdbWavesEffect >Loan Approval</a>
+                        <a class="dropdown-item waves-light" routerLink="loan-due-pay" mdbWavesEffect >Loan Pay</a>
+                        <a class="dropdown-item waves-light" routerLink="loan-lending-detail"  mdbWavesEffect >Lending Details</a></div>
+                </li>
+                    <li class="nav-item dropdown" dropdown>
+                            <a dropdownToggle mdbWavesEffect class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+                             Fixed Deposit<span class="caret"></span></a>
+                            <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                                    <a class="dropdown-item waves-light" routerLink="fixed-deposit" mdbWavesEffect >Fixed Deposit</a>
+                                <a class="dropdown-item waves-light" routerLink="fd-amount-request" mdbWavesEffect >FD Amount Request</a>
+                                <a class="dropdown-item waves-light"routerLink="fd-amount-settlement" mdbWavesEffect >FD Amount Owner Settlement</a>
+                                </div>
+                        </li>
+                    <li class="nav-item waves-light" mdbWavesEffect>
+                        <a class="nav-link"  (click)="sign_out()" id="aid"><i class="fa fa-sign-out" style= "font-size:18px" aria-hidden="true"></i>Signout</a>
+                    </li>
+      </ul>
+      <ul class="navbar-nav nav-flex-icons">
+    </ul>
+  </links>
+</mdb-navbar>
+
+
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  loadingText="Loading..."
+  type="ball-scale-multiple">
+</ngx-spinner>
